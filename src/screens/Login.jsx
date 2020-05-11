@@ -4,12 +4,13 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useHistory
 } from "react-router-dom";
 import axios from 'axios';
 export default function Login () {
   const {login} = useContext(AuthContext)
-  
+  const history = useHistory()
   return (
     <div className="App">
       <header className="App-header">
@@ -18,13 +19,22 @@ export default function Login () {
         <button><a href='http://localhost:3001/auth/google'><h2>LOGIN WITH HREF</h2></a></button>
         
       <button onClick={async()=>{
-        const result = await axios.post('http://localhost:3001/auth/login',{id:'sjs5953',pw:'123'},{withCredentials: true});
+        const result = await axios.post('http://localhost:3001/auth/login',{email:'sjs5953@hotmail.com',password:'123'},{withCredentials: true});
         const user = result.data;
-        // login(user)
+        if (user) {
+          login(user);
+          history.push('/profile')
+        }
         console.log(result);
       }}>
       <h2>Login with ID/PW</h2>
       </button>
+
+
+      <button onClick={async()=>{
+        const result = await axios.get('http://localhost:3001/auth/check',{withCredentials: true});
+        console.log(result.data)
+      }}>check</button>
 {/*         
         <form action='http://localhost:3001/auth/login' method='post'
           onSubmit={e=>{
