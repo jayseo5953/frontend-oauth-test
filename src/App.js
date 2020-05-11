@@ -30,7 +30,7 @@ function App() {
   },[user]);
 
   useEffect(()=>{
-    axios.get('/auth/user')
+    axios.get('/auth/user',{withCredentials: true})
       .then(res=>{
         console.log("res ",res.data)
         const currentUser = res.data.id?res.data:null;        
@@ -40,11 +40,11 @@ function App() {
 
   return (
     <AuthContext.Provider value={authContext}>
-    <Router>
-      <Switch>
-        <Route path="/profile" render={(routeProps) => <Profile/> }/>
-        <Route path="/" render={(routeProps) => <Login /> }/>
-      </Switch>
+      <Router>
+        <Switch>
+          <Route path="/profile" render={(routeProps) => <Profile/> }/>
+          <Route path="/" render={(routeProps) => <Login /> }/>
+        </Switch>
       </Router>
     </AuthContext.Provider>
 

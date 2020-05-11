@@ -10,7 +10,7 @@ export default function Profile (){
     <div className="App">
       <header className="App-header">
       <h1>USER PAGE</h1>
-        <p>{user?"Logged In":"Not Logged In"}</p>
+        <p>{user?`${user.username}`:"Not Logged In"}</p>
         <p>Hello this is users page</p>
         <button onClick={logout}><h3>Log Out</h3></button>
       </header>
