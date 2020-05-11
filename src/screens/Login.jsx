@@ -9,7 +9,7 @@ export default function Login () {
       <header className="App-header">
       <h1>LOGIN PAGE</h1>
         <button onClick={login}><h2>Log In With WINDOW.LOCATION</h2></button>
-        <button><a href='/auth/google'><h2>LOGIN WITH HREF</h2></a></button>
+        <button><a href='http://localhost:3001/auth/google'><h2>LOGIN WITH HREF</h2></a></button>
       </header>
     </div>
   );

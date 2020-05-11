@@ -20,17 +20,17 @@ function App() {
       user,
       setUser,
       login: async () => {
-        window.location='/auth/google'
+        window.location='http://localhost:3001/auth/google'
       },
       logout: async () => {
-        await axios.get('/auth/logout',{withCredentials: true});
+        await axios.get('http://localhost:3001/auth/logout',{withCredentials: true});
         setUser(null);
     }
   }
   },[user]);
 
   useEffect(()=>{
-    axios.get('/auth/user',{withCredentials: true})
+    axios.get('http://localhost:3001/auth/user',{withCredentials: true})
       .then(res=>{
         console.log("res ",res.data)
         const currentUser = res.data.id?res.data:null;        
