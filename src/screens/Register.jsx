@@ -26,7 +26,7 @@ export default function Register() {
         </form> */}
       <button onClick={async()=>{
         try {
-          const result = await axios.post('http://localhost:3001/auth/register',{email:'sjs5953@hotmail.com',password:'123'},{withCredentials: true})
+          const result = await axios.post('http://localhost:3001/auth/register',{email:'jolanga@hotmail.com',password:'123'},{withCredentials: true})
           const user = result.data
           console.log("result: ",result)
           if (!user) {

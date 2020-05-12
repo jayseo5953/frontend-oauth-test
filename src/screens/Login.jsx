@@ -19,7 +19,7 @@ export default function Login () {
         <button><a href='http://localhost:3001/auth/google'><h2>LOGIN WITH HREF</h2></a></button>
         
       <button onClick={async()=>{
-        const result = await axios.post('http://localhost:3001/auth/login',{email:'sjs5953@hotmail.com',password:'123'},{withCredentials: true});
+        const result = await axios.post('http://localhost:3001/auth/login',{email:'jolanga@hotmail.com',password:'123'},{withCredentials: true});
         const user = result.data;
         if (user) {
           login(user);
